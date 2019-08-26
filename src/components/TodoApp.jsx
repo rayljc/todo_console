@@ -30,8 +30,6 @@ class TodoApp extends Component {
                         <FooterComponent/>
                     </>
                 </Router>
-                {/*<LoginComponent/>
-                <WelcomeComponent/>*/}
             </div>
         )
     }

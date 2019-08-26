@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import AuthenticationService from './AuthenticationService.js'
 
 class LoginComponent extends Component {
-    
+
     constructor(props) {
         super(props)
         
@@ -26,15 +26,16 @@ class LoginComponent extends Component {
     }
 
     loginClicked() {
-        //Account: admin; Password: 123456
-        if(this.state.username==='admin' && this.state.password==='123456'){
+
+        AuthenticationService
+        .executeBasicAuthenticationService(this.state.username, this.state.password)
+        .then(() => {
             AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
             this.props.history.push(`/welcome/${this.state.username}`)
-        }
-        else {
+        }).catch( () =>{
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
-        }
+        })
     }
 
     render() {
@@ -42,10 +43,8 @@ class LoginComponent extends Component {
             <div>
                 <h1>Login</h1>
                 <div className="container">
-                    {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
-                    {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
                     Password: <input type="password" name="password" value={this.state.password}  onChange={this.handleChange}/>
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
