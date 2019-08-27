@@ -78,8 +78,8 @@ class ListTodosComponent extends Component {
                         <thead>
                             <tr>
                                 <th>Description</th>
+                                <th>Completed?</th>
                                 <th>Target Date</th>
-                                <th>IsCompleted?</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>

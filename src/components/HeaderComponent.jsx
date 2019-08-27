@@ -6,14 +6,14 @@ import AuthenticationService from './AuthenticationService.js'
 class HeaderComponent extends Component {
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
-        //console.log(isUserLoggedIn);
+        console.log(isUserLoggedIn);
 
         return (
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div><a href="https://github.com/rayljc/todo_console" className="navbar-brand">TodoConsole</a></div>
                     <ul className="navbar-nav">
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/admin">Home</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
