@@ -8,7 +8,9 @@ class AuthenticationService {
     }
 
     createBasicAuthToken(username,password) {
-        return 'Basic ' +  window.btoa(username + ":" + password)
+        let userToken = 'Basic ' +  window.btoa(username + ":" + password) 
+        sessionStorage.setItem("USER_TOKEN", userToken)    // fix refresing issue
+        return userToken
     }
 
     registerSuccessfulLogin(username,password){
