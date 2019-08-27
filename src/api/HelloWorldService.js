@@ -14,7 +14,7 @@ class HelloWorldService {
 
     executeHelloWorldPathVariableService(name) {
         //console.log('executed service')
-        return axios.get(`http://localhost:8080/hello-world/path-variables/${name}`);        
+        return axios.get(`http://localhost:8080/hello-world/path-variable/${name}`);        
     }
 }
 
