@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+//import {Link} from 'react-router-dom'  //Fix issue #1, component not rendered after login
+import { Link, withRouter } from 'react-router-dom'  //Fix issue #1, component not rendered after login
 import AuthenticationService from './AuthenticationService.js'
 
 
@@ -26,4 +27,12 @@ class HeaderComponent extends Component {
     }
 }
 
-export default HeaderComponent
+//export default HeaderComponent
+export default withRouter(HeaderComponent)
+
+/*
+react-router-dom v5.x.x is not re-rendering the component after the user has logged in,
+the system must valid the boolean value called isUserLoggedIn that is defined in
+AuthenticationService.js, that value gets the item saved into the sessionStorage.
+This issue does not appear in react-router-dom 4.3.1
+*/
